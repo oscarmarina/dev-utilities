@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    // https://humanwhocodes.com/snippets/2020/10/create-typescript-declarations-from-javascript-jsdoc/
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "experimentalDecorators": true,
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "types": [],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "checkJs": true,
+    "outDir": "./dist",
+    "strict": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/dev-utilities.js"]
+}
