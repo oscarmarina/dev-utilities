@@ -1,0 +1,144 @@
+{
+  "name": "@blockquote/dev-utilities",
+  "version": "1.0.0",
+  "description": "Developer utilities for handling DOM, events, and other web development tasks",
+  "keywords": [
+    "dom",
+    "events",
+    "dispatchEvent",
+    "treeWalker",
+    "utilities"
+  ],
+  "homepage": "https://github.com/oscarmarina/dev-utilities",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarmarina/dev-utilities.git"
+  },
+  "license": "MIT",
+  "author": "Oscar Marina",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/dev-utilities.js"
+    }
+  },
+  "main": "./dist/dev-utilities.js",
+  "module": "./dist/dev-utilities.js",
+  "source": "./src/dev-utilities.js",
+  "files": [
+    "/dist/",
+    "/src/"
+  ],
+  "scripts": {
+    "build": "vite build && tsc",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "format:eslint": "eslint \"**/*.{js,ts,html}\" --fix --ignore-path .eslintignore",
+    "format:prettier": "prettier \"**/*.{js,ts,json,html}\" --write --ignore-path .eslintignore",
+    "prepare": "husky",
+    "test": "vitest",
+    "vite": "vite"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,html}": [
+      "npm run format:eslint"
+    ],
+    "**/*.{js,ts,json,html}": [
+      "npm run format:prettier"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "overrides": [
+      {
+        "files": "*.{scss,css}",
+        "options": {
+          "printWidth": 280,
+          "singleQuote": false
+        }
+      }
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "extends": [
+      "@open-wc",
+      "prettier"
+    ],
+    "rules": {
+      "class-methods-use-this": "off",
+      "indent": [
+        "error",
+        2,
+        {
+          "SwitchCase": 1,
+          "ignoredNodes": [
+            "PropertyDefinition",
+            "TemplateLiteral > CallExpression"
+          ]
+        }
+      ],
+      "no-unused-expressions": [
+        "error",
+        {
+          "allowShortCircuit": true,
+          "allowTernary": true
+        }
+      ],
+      "object-curly-newline": "off",
+      "import/extensions": [
+        "error",
+        "always",
+        {
+          "ignorePackages": true
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "**/test/**/*.{js,ts}",
+            "**/*.config.{js,ts,mjs,cjs}",
+            "**/*.conf.{js,ts,mjs,cjs}"
+          ]
+        }
+      ],
+      "import/no-unresolved": "off",
+      "import/prefer-default-export": "off",
+      "lit-a11y/click-events-have-key-events": "off",
+      "lit/no-classfield-shadowing": "off",
+      "lit/no-native-attributes": "off"
+    }
+  },
+  "devDependencies": {
+    "@blockquote/rollup-plugin-externalize-source-dependencies": "^1.0.0",
+    "@open-wc/eslint-config": "^12.0.3",
+    "@open-wc/testing": "^4.0.0",
+    "@types/mocha": "^10.0.6",
+    "@vitest/browser": "^1.6.0",
+    "@vitest/coverage-istanbul": "^1.6.0",
+    "@vitest/ui": "latest",
+    "@web/rollup-plugin-html": "^2.3.0",
+    "@web/test-runner": "^0.18.2",
+    "@web/test-runner-playwright": "^0.11.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.5",
+    "lit": "^3.1.4",
+    "prettier": "^3.2.5",
+    "ts-lit-plugin": "^2.0.2",
+    "vite": "^5.2.13",
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vitest": "^1.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
