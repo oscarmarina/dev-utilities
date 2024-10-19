@@ -1,6 +1,6 @@
 {
   "name": "@blockquote/dev-utilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Developer utilities for handling DOM, events, and other web development tasks",
   "keywords": [
     "dom",
@@ -20,7 +20,10 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/dev-utilities.js"
+      "default": "./dist/dev-utilities.js"
+    },
+    "./src/dev-utilities.js": {
+      "default": "./src/dev-utilities.js"
     }
   },
   "main": "./dist/dev-utilities.js",
